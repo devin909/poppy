@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vino</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<header class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<nav>
+					<ul class="nav">  
+						<li class="active">  
+							<a class="brand" href="#">Vino</a>  
+						</li>  
+						<li><a href="#">Home</a></li>  
+						<li><a href="#">About</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><%= link_to "Help",    '#' %></li>
+						<li><%= link_to "Sign in", '#' %></li>
+						<li class="dropdown">  
+							<a href="#"  
+							class="dropdown-toggle"  
+							data-toggle="dropdown">  
+							Social  
+							<b class="caret"></b>  
+						</a>  
+						<ul class="dropdown-menu">  
+							<li class="socials"><!-- Place this tag where you want the +1 button to render -->  
+								<g:plusone annotation="inline" width="150"></g:plusone>  
+							</li>  
+							<li class="socials"><div class="fb-like" data-send="false" data-width="150" data-show-faces="true"></div></li>  
+							<li class="socials"><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>  
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>  
+							</ul>  
+						</li> 
+					</ul>
+					<ul class="nav">  
+						<%= drop_down "Products" do %>
+						<%= menu_item "Latest"  %>
+						<%= menu_item "Top Sellers" %>
+						<%= drop_down_divider %>
+						<%= menu_item "Discount Items"%>
+						<% end %>  
+					</ul> 
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<%= yield %>
+	</div>
+	<script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>  
+	<script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-dropdown.js"></script>
+</body>
+</html>
